@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RFID Europe Energy Viewer</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div class="app">
+        <section class="hero">
+            <h1>RFID Europe Energy Viewer</h1>
+            <p>Scan an RFID tag to show the country and generation data from your uploaded spreadsheets.</p>
+            <button id="connectButton">Connect Arduino</button>
+            <div id="status">Status: Not connected</div>
+        </section>
+
+        <div class="layout">
+            <section class="panel">
+                <h2>Selected Country</h2>
+                <div id="selectedCountry" class="selected-country">Waiting for scan...</div>
+                <p>Click a country below to test the dashboard without scanning a tag.</p>
+                <div class="country-list" id="countryList"></div>
+            </section>
+
+            <section class="panel dashboard">
+                <div class="kpis">
+                    <div class="kpi">
+                        <div class="kpi-label">2025 total</div>
+                        <div class="kpi-value" id="totalValue">-</div>
+                    </div>
+                    <div class="kpi">
+                        <div class="kpi-label">Highest month</div>
+                        <div class="kpi-value" id="peakMonth">-</div>
+                    </div>
+                    <div class="kpi">
+                        <div class="kpi-label">Top source</div>
+                        <div class="kpi-value" id="topSource">-</div>
+                    </div>
+                </div>
+
+                <div class="split">
+                    <div class="card">
+                        <h3>Monthly generation</h3>
+                        <div id="monthlyChart" class="chart"></div>
+                        <div class="note">
+                            Showing all available 2025 monthly values from the uploaded country workbooks.
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3>Top generation sources</h3>
+                        <div id="sourceList" class="source-list"></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
